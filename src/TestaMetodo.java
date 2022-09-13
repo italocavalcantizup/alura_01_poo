@@ -3,14 +3,29 @@ public class TestaMetodo {
 
 	public static void main(String[] args) {
 		
-		Conta conta = new Conta();
-		conta.deposita(500);
+		Conta conta1 = new Conta();
+		conta1.deposita(500);
 		
-		System.out.println(conta.getSaldo());
+		System.out.println(conta1.getSaldo());
 		
-		boolean conseguiuRetirar = conta.saca(300);
+		boolean conseguiuRetirar = conta1.saca(300);
 		System.out.println();
-		System.out.println(conseguiuRetirar ? "Saque efetuado!" : "Erro ao sacar");
+		
+		
+		Conta conta2 = new Conta();
+		conta2.deposita(600);
+		
+		System.out.println("Testando transferência");
+		System.out.println("Saldo 1: " + conta1.getSaldo());
+		System.out.println("Saldo 2: " + conta2.getSaldo());
+		
+		conta1.transfere(150, conta2);
+		System.out.println("Saldo 1: " + conta1.getSaldo());
+		System.out.println("Saldo 2: " + conta2.getSaldo());
+		
+		conta2.transfere(500, conta1);
+		System.out.println("Saldo 1: " + conta1.getSaldo());
+		System.out.println("Saldo 2: " + conta2.getSaldo());
 		
 	}
 

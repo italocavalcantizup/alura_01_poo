@@ -11,12 +11,22 @@ public class Conta {
 	public boolean saca(double valor) {
 		if (valor <= this.saldo) {
 			this.saldo -= valor;
-			System.out.printf("Saque efetuado! Seu novo saldo é de R$ %.2f", this.saldo);
 			return true;
 		} else {
 			System.out.println("Valor inválido");
 			return false;
 		}
+	}
+	
+	public boolean transfere(double valor, Conta destino) {
+		if (valor <= this.saldo) {
+			destino.deposita(valor);
+			this.saca(valor);
+			return true;
+		} 
+		System.out.println("Erro ao fazer transferência.");
+		return false;
+		
 	}
 
 	public double getSaldo() {
